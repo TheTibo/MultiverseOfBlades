@@ -39,8 +39,41 @@ const add = async (req, res, next) => {
   }
 };
 
+const edit = async (req, res, next) => {
+  const editBlade = {
+    name: req.body.name,
+    picture: req.body.picture,
+    origin: req.body.origin,
+    id: req.params.id,
+  };
+  try {
+    const result = await tables.blade.update(editBlade);
+    if (result.affectedRows === 0) {
+      res.status(404).json({ msg: "Blade introuvable" });
+    } else {
+      res.json({ msg: "Blade modifié avec succès" });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
+
+const destroy = async (req, res, next) => {
+  try {
+    const result = await tables.blade.delete(req.params.id);
+    if (result.affectedRows === 0) {
+      res.status(404).json({ msg: "blade introuvable" });
+    } else {
+      res.json({ msg: "Blade supprimé avec succès" });
+    }
+  } catch (err) {
+    next(err);
+  }
+};
 module.exports = {
   browse,
   read,
   add,
+  edit,
+  destroy,
 };
