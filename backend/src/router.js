@@ -22,6 +22,10 @@ router.get("/blade/:id", bladeControllers.read);
 router.post("/items", itemControllers.add);
 router.post("/blade", bladeControllers.add);
 
+router.put("/blade/:id", bladeControllers.edit);
+
+router.delete("/blade/:id", bladeControllers.destroy);
+
 /* ************************************************************************* */
 
 module.exports = router;

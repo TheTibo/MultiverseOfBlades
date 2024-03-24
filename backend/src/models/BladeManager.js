@@ -25,5 +25,21 @@ class BladeManager extends AbstractManager {
     );
     return result[0];
   }
+
+  async update(blade) {
+    const [result] = await this.database.query(
+      `Update ${this.table} set name=?, picture=?, origin=? where id=?`,
+      [blade.name, blade.picture, blade.origin, blade.id]
+    );
+    return result;
+  }
+
+  async delete(id) {
+    const [result] = await this.database.query(
+      `Delete from ${this.table} where id=?`,
+      [id]
+    );
+    return result;
+  }
 }
 module.exports = BladeManager;
