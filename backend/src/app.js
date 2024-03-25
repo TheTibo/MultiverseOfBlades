@@ -3,7 +3,11 @@
 const express = require("express");
 
 const app = express();
+const path = require("path");
 
+app.use("/public/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../", req.originalUrl));
+});
 // Configure it
 
 /* ************************************************************************* */
@@ -37,7 +41,7 @@ app.use(
     ]
   })
 );
-*/
+
 
 /* ************************************************************************* */
 

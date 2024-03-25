@@ -3,12 +3,19 @@ import ReactDOM from "react-dom/client";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
+import Home from "./pages/Home";
+import BladeCard from "./components/BladeCard";
+
 import App from "./App";
 
 const router = createBrowserRouter([
   {
-    path: "/",
     element: <App />,
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/description", element: <BladeCard /> },
+      { path: "/description/:id", element: <BladeCard /> },
+    ],
   },
 ]);
 

@@ -1,0 +1,22 @@
+.LogSignContainer {
+  display: flex;
+  padding: 15px;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin: 15px;
+  gap: 10em;
+}
+
+.LogSignContainer > button {
+  background-color: black;
+  color: white;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  font-size: 20px;
+  border: solid black;
+  border-radius: 30px;
+  width: 8em;
+  height: 2.5em;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
