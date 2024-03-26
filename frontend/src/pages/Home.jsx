@@ -1,14 +1,14 @@
 import React from "react";
 import LoginAndSignin from "../components/LoginAndSignin";
 import AddAndLogout from "../components/AddAndLogout";
-import EditAndDelete from "../components/EditAndDelete";
+import BladeDescription from "./BladeDescription";
 
 export default function Home() {
   return (
     <div>
       <LoginAndSignin />
       <AddAndLogout />
-      <EditAndDelete />
+      <BladeDescription />
     </div>
   );
 }
