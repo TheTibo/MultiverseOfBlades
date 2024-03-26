@@ -1,0 +1,25 @@
+.descriptionContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5em;
+}
+
+.descriptionContainer > img {
+  width: 80em;
+  height: 40em;
+  border-radius: 60px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.descriptionContainer > p,
+.descriptionContainer > h2 {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+  background-color: lightgray;
+  padding: 20px;
+  border-radius: 30px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+
+  margin: 0 5% 2.5% 5%;
+}
