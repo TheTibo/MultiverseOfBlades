@@ -5,13 +5,15 @@ import LoginAndSignin from "../components/LoginAndSignin";
 import AddAndLogout from "../components/AddAndLogout";
 // import BladeDescription from "./BladeDescription";
 import BladeList from "../components/BladeList";
+import "../styles/BladeList.css";
 
 export default function Home() {
   const [blades, setBlades] = useState([]);
+  const URL = import.meta.env.VITE_BACKEND_URL;
 
   useEffect(() => {
     axios
-      .get(`${import.meta.VITE_BACKEND_URL}/api/blade`)
+      .get(`${URL}/api/blade`)
       .then((response) => {
         setBlades(response.data);
       })
@@ -24,10 +26,11 @@ export default function Home() {
     <div>
       <LoginAndSignin />
       <AddAndLogout />
-      {/* <BladeDescription /> */}
-      {blades.map((blade) => (
-        <BladeList key={blade.id} blade={blade} />
-      ))}
+      <div className="BladeCardContainer">
+        {blades.map((blade) => (
+          <BladeList key={blade.id} blade={blade} />
+        ))}
+      </div>
     </div>
   );
 }

@@ -1,10 +1,12 @@
 import React from "react";
 import EditAndDelete from "../components/EditAndDelete";
 import "../styles/BladeDescription.css";
+import BladeList from "../components/BladeList";
 
 export default function BladeDescription() {
   return (
     <div className="descriptionContainer">
+      <BladeList />
       <EditAndDelete />
       <img
         src="https://t3.ftcdn.net/jpg/05/64/91/08/360_F_564910809_LVJtxVTxPC47CWAJJ91XOgLwGSCcXWXp.jpg"
