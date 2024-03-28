@@ -22,7 +22,7 @@ const router = createBrowserRouter([
             .then((response) => response.data)
             .catch((error) => console.error(error)),
       },
-      { path: "/description/:id", element: <BladeCard /> },
+      // { path: "/description/:id", element: <BladeCard /> },
     ],
   },
 ]);
