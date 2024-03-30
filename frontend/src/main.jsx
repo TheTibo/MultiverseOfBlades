@@ -20,7 +20,9 @@ const router = createBrowserRouter([
         element: <BladeDescription />,
         loader: () =>
           axios
-            .get(`${import.meta.env.VITE_BACKEND_URL}/api/blade`)
+            .get(`${import.meta.env.VITE_BACKEND_URL}/api/blade`, {
+              withCredentials: true,
+            })
             .then((response) => response.data)
             .catch((error) => console.error(error)),
       },
