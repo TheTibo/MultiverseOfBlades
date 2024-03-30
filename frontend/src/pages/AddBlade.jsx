@@ -3,8 +3,9 @@ import axios from "axios";
 
 export default function AddBlade() {
   const [form, setForm] = useState({
-    title: "",
-    content: "",
+    name: "",
+    origin: "",
+    picture: "",
     userId: 1,
   });
   const handleChangeForm = (event) => {
@@ -17,23 +18,28 @@ export default function AddBlade() {
   const submitArticle = (event) => {
     event.preventDefault();
     axios
-      .post(`${import.meta.env.VITE_BACKEND_URL}/api/articles/`, form)
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/blade/`, form)
       .then((response) => console.info(response))
       .catch((err) => console.error(err));
   };
   return (
     <div>
-      <h1>Créer un article</h1>
+      <h1>Ajouter un article</h1>
       <form onSubmit={submitArticle}>
-        <label htmlFor="title">Titre de l&apos;article :</label>
+        <label htmlFor="name">Nom de l'épee :</label>
+        <input type="text" name="name" onChange={handleChangeForm} id="name" />
+
+        <label htmlFor="origin">Origin :</label>
+        <textarea name="origin" onChange={handleChangeForm} id="origin" />
+
+        <label htmlFor="picture">Lien de l'image :</label>
         <input
           type="text"
-          name="title"
+          name="picture"
           onChange={handleChangeForm}
-          id="title"
+          id="picture"
         />
-        <label htmlFor="content">Contenu de l&apos;article :</label>
-        <textarea name="content" id="content" />
+
         <input type="submit" />
       </form>
     </div>
