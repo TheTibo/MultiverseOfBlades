@@ -9,6 +9,8 @@ import BladeCard from "./components/BladeCard";
 
 import App from "./App";
 import AddBlade from "./pages/AddBlade";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,8 @@ const router = createBrowserRouter([
       },
       { path: "/description/:id", element: <BladeCard /> },
       { path: "/addBlade", element: <AddBlade /> },
+      { path: "/register", element: <Register /> },
+      { path: "/login", element: <Login /> },
     ],
   },
 ]);
