@@ -22,7 +22,7 @@ const readId = async (req, res, next) => {
 const add = async (req, res, next) => {
   const userInfos = {
     email: req.body.email,
-    password: req.body.password,
+    password: req.body.hashedPassword,
     username: req.body.username,
   };
 
