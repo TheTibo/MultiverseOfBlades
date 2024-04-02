@@ -1,6 +1,8 @@
 import { React, useState } from "react";
 import axios from "axios";
 
+import "../styles/AddBlade.css";
+
 export default function AddBlade() {
   const [form, setForm] = useState({
     name: "",
@@ -23,8 +25,8 @@ export default function AddBlade() {
       .catch((err) => console.error(err));
   };
   return (
-    <div>
-      <h1>Ajouter un article</h1>
+    <div className="addContainer">
+      <h1>Ajoute ton article :</h1>
       <form onSubmit={submitArticle}>
         <label htmlFor="name">Nom de l'épee :</label>
         <input type="text" name="name" onChange={handleChangeForm} id="name" />
@@ -32,7 +34,7 @@ export default function AddBlade() {
         <label htmlFor="origin">Origin :</label>
         <textarea name="origin" onChange={handleChangeForm} id="origin" />
 
-        <label htmlFor="picture">Lien de l'image :</label>
+        <label htmlFor="picture">Lien de l'image ( PNJ, JPEG ):</label>
         <input
           type="text"
           name="picture"

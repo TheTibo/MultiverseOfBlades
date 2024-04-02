@@ -1,6 +1,8 @@
 import { React, useState } from "react";
 import axios from "axios";
 
+import "../styles/Login.css";
+
 export default function Login() {
   const URL = import.meta.env.VITE_BACKEND_URL;
   const [email, setEmail] = useState("");
@@ -31,12 +33,12 @@ export default function Login() {
       .catch((error) => console.error(error));
   };
   return (
-    <div>
+    <div className="loginContainer">
       <h1>Se connecter</h1>
       <form onSubmit={submitForm}>
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">Email :</label>
         <input type="email" onChange={handleChangeEmail} />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">Password :</label>
         <input type="password" onChange={handleChangePassword} />
         <input type="submit" />
       </form>
