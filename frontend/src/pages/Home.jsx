@@ -1,6 +1,8 @@
 import { React, useState, useEffect } from "react";
 import axios from "axios";
 
+import { Link } from "react-router-dom";
+
 import LoginAndSignin from "../components/LoginAndSignin";
 import AddAndLogout from "../components/AddAndLogout";
 // import BladeDescription from "./BladeDescription";
@@ -28,7 +30,9 @@ export default function Home() {
       <AddAndLogout />
       <div className="BladeCardContainer">
         {blades.map((blade) => (
-          <BladeList key={blade.id} blade={blade} />
+          <Link key={blade.id} to={blade.url}>
+            <BladeList blade={blade} />
+          </Link>
         ))}
       </div>
     </div>

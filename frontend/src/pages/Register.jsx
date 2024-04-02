@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import axios from "axios";
 
+import "../styles/Register.css";
+
 export default function Register() {
   const URL = import.meta.env.VITE_BACKEND_URL;
   const [email, setEmail] = useState("");
@@ -34,20 +36,20 @@ export default function Register() {
       .catch((error) => console.error(error));
   };
   return (
-    <div>
-      <h1>Page de register</h1>
+    <div className="registerContainer">
+      <h1>Page d'enregistrement</h1>
       <form onSubmit={submitForm}>
-        <label htmlFor="email">Email</label>
+        <label htmlFor="email">Email : </label>
         <input type="email" id="email" onChange={handleChangeEmail} />
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password">Password : </label>
         <input type="password" id="password" onChange={handleChangePassword} />
-        <label htmlFor="username">Username</label>
+        <label htmlFor="username">Username : </label>
         <input type="text" id="username" onChange={handleChangeUsername} />
         <input type="submit" />
       </form>
 
       <Link to="/login">
-        <button type="button">Log in</button>{" "}
+        <button type="button">Log in</button>
       </Link>
     </div>
   );
