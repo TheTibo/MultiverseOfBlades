@@ -18,12 +18,12 @@ class BladeManager extends AbstractManager {
     return result;
   }
 
-  async read(id) {
-    const [result] = await this.database.query(
-      `select * from ${this.table} where id = ?`,
-      [id]
+  async readById(idBlade) {
+    const [rows] = await this.database.query(
+      `select * from ${this.table} where id = ? `,
+      [idBlade]
     );
-    return result[0];
+    return rows;
   }
 
   async update(blade) {

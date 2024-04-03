@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from "react";
 import axios from "axios";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import LoginAndSignin from "../components/LoginAndSignin";
 import AddAndLogout from "../components/AddAndLogout";
@@ -12,6 +12,12 @@ import "../styles/BladeList.css";
 export default function Home() {
   const [blades, setBlades] = useState([]);
   const URL = import.meta.env.VITE_BACKEND_URL;
+
+  const navigate = useNavigate();
+
+  const refreshPage = () => {
+    navigate("/", { replace: true });
+  };
 
   useEffect(() => {
     axios
@@ -31,7 +37,7 @@ export default function Home() {
       <div className="BladeCardContainer">
         {blades.map((blade) => (
           <Link key={blade.id} to={blade.url}>
-            <BladeList blade={blade} />
+            <BladeList blade={blade} refreshPage={refreshPage} />
           </Link>
         ))}
       </div>
