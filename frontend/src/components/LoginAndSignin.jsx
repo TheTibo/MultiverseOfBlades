@@ -7,7 +7,7 @@ export default function LoginAndSignin() {
   return (
     <div className="LogSignContainer">
       <Link to="/login">
-        <button type="button">Log in</button>{" "}
+        <button type="button">Log in</button>
       </Link>
       <Link to="/register">
         <button type="button">Sign in</button>

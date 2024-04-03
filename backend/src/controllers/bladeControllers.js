@@ -10,13 +10,10 @@ const browse = async (req, res, next) => {
 };
 
 const read = async (req, res, next) => {
+  const { id } = req.params;
   try {
-    const blades = await tables.blade.read(req.params.id);
-    if (blades == null) {
-      res.sendStatus(404);
-    } else {
-      res.json(blades);
-    }
+    const blades = await tables.blade.readById(id);
+    res.json(blades);
   } catch (err) {
     next(err);
   }

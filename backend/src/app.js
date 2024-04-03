@@ -36,6 +36,7 @@ app.use(
     origin: [
       process.env.FRONTEND_URL, // keep this one, after checking the value in `backend/.env`
     ],
+    credentials: true,
   })
 );
 
