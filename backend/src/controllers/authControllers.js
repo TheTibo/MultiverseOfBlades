@@ -18,6 +18,7 @@ const login = async (req, res, next) => {
         {
           sub: user[0].id,
           email: user[0].email,
+          username: user[0].username,
         },
         process.env.APP_SECRET,
         {
@@ -30,7 +31,13 @@ const login = async (req, res, next) => {
           httpOnly: true,
           sameSite: "Lax",
         })
-        .json({ msg: "Connexion réussie" });
+        .json({
+          msg: "Connexion réussie",
+          id: user[0].id,
+          email: user[0].email,
+          username: user[0].username,
+          token,
+        });
     } else {
       res.sendStatus(422);
     }
