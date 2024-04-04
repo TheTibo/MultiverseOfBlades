@@ -11,6 +11,7 @@ import Register from "./pages/Register";
 import Login from "./pages/Login";
 import BladeCard from "./components/BladeCard";
 import EditBlade from "./pages/EditBlade";
+import { UserProvider } from "./services/UserContext";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
       { path: "/addBlade", element: <AddBlade /> },
       { path: "/register", element: <Register /> },
       { path: "/login", element: <Login /> },
-      { path: "/editBlade", element: <EditBlade /> },
+      { path: "/editBlade/:id", element: <EditBlade /> },
     ],
   },
 ]);
@@ -30,6 +31,8 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
   </React.StrictMode>
 );

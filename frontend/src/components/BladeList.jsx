@@ -16,19 +16,25 @@ export default function BladeList({ blade, refreshPage }) {
   };
 
   return (
-    <div className="BladeCardContainer">
+    <div>
       <div className="BladeCardPicture">
         <img src={blade.picture} alt="bladePicture" />
       </div>
       <div className="BladeName">
-        <h1>{blade.name}</h1>
-      </div>
-      <div className="EditAndDelete">
-        <Link to="/editBlade">
-          <button type="button">Edit</button>
+        <Link to={`/editBlade/${blade.id}`}>
+          <button type="button" className="EditBtn">
+            <img
+              src="http://localhost:3310/public/assets/images/update.png"
+              alt="bladePicture"
+            />
+          </button>
         </Link>
-        <button type="button" onClick={deleteBlade}>
-          Delete
+        <h1>{blade.name}</h1>
+        <button type="button" className="DeleteBtn" onClick={deleteBlade}>
+          <img
+            src="http://localhost:3310/public/assets/images/bin.png"
+            alt="bladePicture"
+          />
         </button>
       </div>
     </div>

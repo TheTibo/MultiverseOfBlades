@@ -28,7 +28,7 @@ class UserManager extends AbstractManager {
 
   async readByEmailWithPassword(email) {
     const [result] = await this.database.query(
-      `select * from ${this.table} where = ?`,
+      `select * from ${this.table} where email = ?`,
       [email]
     );
     return result;
