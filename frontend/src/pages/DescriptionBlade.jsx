@@ -18,3 +18,4 @@ function DescriptionBlade() {
 export default DescriptionBlade;
 
 //  mettre id du jeu ici
+// axios, refresh aand edit function
