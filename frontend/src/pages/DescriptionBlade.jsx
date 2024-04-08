@@ -1,5 +1,6 @@
 import { React, useState, useParams, useEffect } from "react";
 import axios from "axios";
+import Link from "react-router-dom";
 
 function DescriptionBlade() {
   const URL = import.meta.env.VITE_BACKEND_URL;
@@ -24,8 +25,30 @@ function DescriptionBlade() {
   useEffect(() => {
     getBladeInfos();
   }, []);
+
+  const deleteBlade = () => {
+    axios
+      .delete(`${import.meta.env.VITE_BACKEND_URL}/api/blade/${blade.id}`)
+      .then(() => console.info(blade)())
+      .catch((error) => console.error(error));
+  };
   return (
     <div>
+      <Link to={`/editBlade/${blade.id}`}>
+        <button type="button" className="EditBtn">
+          <img
+            src="http://localhost:3310/public/assets/images/update.png"
+            alt="bladePicture"
+          />
+        </button>
+      </Link>
+      <h1>{blade.name}</h1>
+      <button type="button" className="DeleteBtn" onClick={deleteBlade}>
+        <img
+          src="http://localhost:3310/public/assets/images/bin.png"
+          alt="bladePicture"
+        />
+      </button>
       <h2>Ex</h2>
       {/* <img></img> */}
       <p>
